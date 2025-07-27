@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
-    <title>VIN NESIA: QR Code Generator Online Gratis</title>
-    <meta name="description" content="Buat QR Code kustom dengan mudah dan gratis. VIN NESIA QR Code Generator mendukung teks, URL, WiFi, vCard, lokasi, dan bahkan unggah file dengan logo Anda sendiri. Cepat, aman, dan ramah seluler.">
-    <meta name="keywords" content="qr code generator, buat qr code, qr code gratis, vin nesia, qr code online, qr code dengan logo, qr code wifi, qr code vcard, generator qr indonesia">
+    <!-- SEO Meta Tags (English) -->
+    <title>QR Code Generator - VIN NESIA</title>
+    <meta name="description" content="Create custom QR Codes with your logo for free. The VIN NESIA QR Code Generator supports Text, URL, WiFi, vCard, Location, and Files. Design your QR code with unique colors and styles.">
+    <meta name="keywords" content="qr code generator, create qr code, free qr code, vin nesia, online qr code, qr code with logo, wifi qr code, vcard qr code, qr generator tool">
     <meta name="author" content="VIN NESIA">
-    <link rel="canonical" href="https://vinnesia.example.com"> <!-- Ganti dengan URL Anda saat online -->
+    <link rel="canonical" href="https://qr.vinnesia.my.id">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vinnesia.example.com"> <!-- Ganti dengan URL Anda -->
-    <meta property="og:title" content="VIN NESIA: QR Code Generator Online Gratis">
-    <meta property="og:description" content="Buat QR Code kustom dengan mudah. Mendukung teks, URL, WiFi, vCard, dan unggah file dengan logo Anda sendiri.">
-    <meta property="og:image" content="https://vinnesia.example.com/og-image.png"> <!-- Ganti dengan URL gambar preview Anda -->
+    <meta property="og:url" content="https://qr.vinnesia.my.id">
+    <meta property="og:title" content="QR Code Generator - VIN NESIA">
+    <meta property="og:description" content="Easily create custom QR Codes with your logo for free. Supports Text, URL, WiFi, vCard, and more.">
+    <meta property="og:image" content="https://www.vinnesia.my.id/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://vinnesia.example.com"> <!-- Ganti dengan URL Anda -->
-    <meta property="twitter:title" content="VIN NESIA: QR Code Generator Online Gratis">
-    <meta property="twitter:description" content="Buat QR Code kustom dengan mudah. Mendukung teks, URL, WiFi, vCard, dan unggah file dengan logo Anda sendiri.">
-    <meta property="twitter:image" content="https://vinnesia.example.com/og-image.png"> <!-- Ganti dengan URL gambar preview Anda -->
+    <meta property="twitter:url" content="https://qr.vinnesia.my.id">
+    <meta property="twitter:title" content="QR Code Generator - VIN NESIA">
+    <meta property="twitter:description" content="Easily create custom QR Codes with your logo for free. Supports Text, URL, WiFi, vCard, and more.">
+    <meta property="twitter:image" content="https://www.vinnesia.my.id/og-image.png">
 
     <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
     
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --background-color: #ecf0f1;
-            --widget-background: #ffffff;
-            --text-color: #333;
-            --light-gray: #bdc3c7;
-            --success-color: #2ecc71;
+            --color-background: #121212;
+            --color-surface: #1e1e1e;
+            --color-primary: #8A2BE2; /* Purple */
+            --color-secondary: #FFD700; /* Gold */
+            --color-text: #EAEAEA;
+            --color-text-muted: #A0A0A0;
+            --color-border: #333333;
+            --color-action: #00897B; /* Teal/Green for Generate button */
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            background-color: var(--color-background);
+            color: var(--color-text);
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -52,43 +54,52 @@
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 2rem auto;
             flex-grow: 1;
         }
 
         header {
             text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--light-gray);
+            padding: 2rem 1rem;
+            border-bottom: 1px solid var(--color-border);
         }
 
         header h1 {
             margin: 0;
-            color: var(--primary-color);
-            font-size: 2.5em;
+            color: var(--color-text);
+            font-size: 2.8em;
+            font-weight: 700;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
         }
-
+        
         .logo-img {
             height: 50px;
+            filter: drop-shadow(0 0 5px var(--color-secondary));
+        }
+
+        header p {
+            color: var(--color-text-muted);
+            font-size: 1.1em;
+            margin-top: 0.5rem;
         }
 
         main {
             display: flex;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .controls {
             flex: 2;
-            background: var(--widget-background);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
         }
 
         .output {
@@ -97,179 +108,164 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: var(--widget-background);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            min-height: 300px;
+            background: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            min-height: 350px;
+            position: sticky;
+            top: 2rem;
+            align-self: flex-start;
         }
 
-        .tabs {
+        .tabs-grid-container {
             display: flex;
-            border-bottom: 1px solid var(--light-gray);
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 1.5rem;
         }
 
         .tab-button {
-            padding: 10px 15px;
+            padding: 0.8rem 1rem;
             cursor: pointer;
             border: none;
             background: none;
             font-size: 1em;
-            color: var(--primary-color);
+            color: var(--color-text-muted);
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
-
+        .tab-button:hover { color: var(--color-text); }
         .tab-button.active {
-            border-bottom-color: var(--secondary-color);
+            color: var(--color-secondary);
             font-weight: bold;
+            border-bottom-color: var(--color-secondary);
         }
 
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="url"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group input[type="number"],
-        .form-group textarea,
-        .form-group select {
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--color-text); }
+        .form-group input, .form-group textarea, .form-group select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid var(--light-gray);
-            border-radius: 5px;
+            padding: 0.8rem;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
             box-sizing: border-box;
             font-size: 1em;
+            background-color: #2c2c2c;
+            color: var(--color-text);
         }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .form-group input[type="color"] { padding: 0.2rem; height: 40px; }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
-        
         .file-warning {
-            background-color: #fff3cd;
-            color: #856404;
-            padding: 10px;
-            border: 1px solid #ffeeba;
-            border-radius: 5px;
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--color-secondary);
+            padding: 0.8rem;
+            border: 1px solid var(--color-secondary);
+            border-radius: 6px;
             font-size: 0.9em;
             margin-top: 10px;
         }
 
-        #qr-code {
+        #qr-code-container {
             width: 100%;
             max-width: 300px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
         }
+        #qr-code canvas, #qr-code svg { border-radius: 4px; display: block; width: 100%; height: auto; }
 
-        .download-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
+        .download-buttons { display: flex; gap: 1rem; width: 100%; }
         .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
+            flex-grow: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 1em;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
         }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
+        .btn-primary { background-color: var(--color-primary); color: white; }
+        .btn-primary:hover { background-color: #9932CC; }
+        .btn-secondary { background-color: var(--color-secondary); color: var(--color-background); }
+        .btn-secondary:hover { background-color: #FFC700; }
+        
+        .btn-generate {
+            background-color: var(--color-action);
             color: white;
+            width: 100%;
+            padding: 1rem;
+            margin-top: auto; /* Pushes button to the bottom */
+            font-size: 1.2em;
         }
-        .btn-primary:hover {
-            background-color: #2980b9;
-        }
-
-        .btn-success {
-            background-color: var(--success-color);
-            color: white;
-        }
-        .btn-success:hover {
-            background-color: #27ae60;
-        }
+        .btn-generate:hover { background-color: #00695C; }
+        
+        .btn-outline { background-color: transparent; color: var(--color-secondary); border: 1px solid var(--color-secondary); }
+        .btn-outline:hover { background-color: var(--color-secondary); color: var(--color-background); }
 
         footer {
-            background-color: var(--primary-color);
-            color: var(--background-color);
+            background-color: #0a0a0a;
+            color: var(--color-text-muted);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 30px;
+            padding: 2.5rem 1.5rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--color-border);
         }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; list-style: none; padding: 0; margin: 0; }
+        .footer-links a { color: var(--color-text-muted); text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--color-secondary); }
+        .copyright { margin-top: 1rem; font-size: 0.9em; }
 
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px 30px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links a {
-            color: var(--background-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.9em;
+        /* --- MEDIA QUERIES FOR RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            main { flex-direction: column; }
+            .output { position: static; align-self: auto; }
+            
+            /* --- GRID TAB LAYOUT FOR TABLET & MOBILE --- */
+            .tabs-grid-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+                border-bottom: none;
+            }
+            .tab-button {
+                border: 1px solid var(--color-border);
+                border-radius: 6px;
+                padding: 0.75rem 0.5rem;
+                font-size: 0.85em;
+                text-align: center;
+                border-bottom: 1px solid var(--color-border); /* Reset border */
+            }
+            .tab-button.active {
+                border-color: var(--color-secondary);
+                background-color: #2a2a2a;
+            }
         }
 
         @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-            }
-            header h1 {
-                font-size: 2em;
-            }
-            .logo-img {
-                height: 40px;
-            }
+            .container { width: 95%; margin: 1.5rem auto; }
+            header h1 { font-size: 2.2em; } .logo-img { height: 40px; }
+            .controls, .output { padding: 1.5rem; }
+            .footer-links { flex-direction: column; gap: 1rem; }
+        }
+        
+        @media (max-width: 576px) {
+            header h1 { font-size: 2em; } .logo-img { height: 35px; }
+            .download-buttons { flex-direction: column; }
+            .btn { padding: 1rem; }
+            #qr-code-container { padding: 0.5rem; }
+            .tabs-grid-container { grid-template-columns: repeat(3, 1fr); } /* 3 columns for very small screens */
         }
     </style>
 </head>
@@ -280,128 +276,62 @@
             <img src="logo.png" alt="VIN NESIA Logo" class="logo-img" onerror="this.style.display='none'">
             VIN NESIA
         </h1>
-        <p>QR Code Generator Online, Cepat, dan Gratis</p>
+        <p>QR Code Generator</p>
     </header>
 
     <main class="container">
         <div class="controls">
-            <div class="tabs">
-                <button class="tab-button active" onclick="openTab(event, 'text')">📝 Teks/URL</button>
+            <div class="tabs-grid-container">
+                <button class="tab-button active" onclick="openTab(event, 'text')">📝 Text/URL</button>
                 <button class="tab-button" onclick="openTab(event, 'wifi')">📶 WiFi</button>
                 <button class="tab-button" onclick="openTab(event, 'vcard')">👤 vCard</button>
                 <button class="tab-button" onclick="openTab(event, 'email')">📧 Email</button>
                 <button class="tab-button" onclick="openTab(event, 'sms')">📱 SMS</button>
-                <button class="tab-button" onclick="openTab(event, 'geo')">📍 Lokasi</button>
+                <button class="tab-button" onclick="openTab(event, 'geo')">📍 Location</button>
                 <button class="tab-button" onclick="openTab(event, 'file')">📁 File</button>
             </div>
 
-            <!-- Tab Content -->
-            <div id="text" class="tab-content active">
-                <div class="form-group">
-                    <label for="text-input">Teks atau URL</label>
-                    <textarea id="text-input" placeholder="Ketik teks atau tempel URL di sini..."></textarea>
-                </div>
+            <div id="text" class="tab-content active"><div class="form-group"><label for="text-input">Your Text or URL</label><textarea id="text-input" placeholder="e.g., https://www.vinnesia.my.id"></textarea></div></div>
+            <div id="wifi" class="tab-content"><div class="form-group"><label for="wifi-ssid">Network Name (SSID)</label><input type="text" id="wifi-ssid" placeholder="MyWiFiNetwork"></div><div class="form-group"><label for="wifi-password">Password</label><input type="text" id="wifi-password" placeholder="SecretPassword"></div><div class="form-group"><label for="wifi-encryption">Encryption</label><select id="wifi-encryption"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select></div></div>
+            <div id="vcard" class="tab-content"><div class="form-group"><label for="vcard-name">Full Name</label><input type="text" id="vcard-name"></div><div class="form-group"><label for="vcard-phone">Phone</label><input type="tel" id="vcard-phone"></div><div class="form-group"><label for="vcard-email">Email</label><input type="email" id="vcard-email"></div><div class="form-group"><label for="vcard-org">Organization</label><input type="text" id="vcard-org"></div><div class="form-group"><label for="vcard-url">Website</label><input type="url" id="vcard-url"></div></div>
+            <div id="email" class="tab-content"><div class="form-group"><label for="email-to">Recipient Email</label><input type="email" id="email-to" placeholder="recipient@example.com"></div><div class="form-group"><label for="email-subject">Subject</label><input type="text" id="email-subject"></div><div class="form-group"><label for="email-body">Message</label><textarea id="email-body"></textarea></div></div>
+            <div id="sms" class="tab-content"><div class="form-group"><label for="sms-to">Phone Number</label><input type="tel" id="sms-to" placeholder="+1234567890"></div><div class="form-group"><label for="sms-body">Message</label><textarea id="sms-body"></textarea></div></div>
+            <div id="geo" class="tab-content"><div class="form-group"><label for="geo-lat">Latitude</label><input type="text" id="geo-lat" placeholder="40.7128"></div><div class="form-group"><label for="geo-lon">Longitude</label><input type="text" id="geo-lon" placeholder="-74.0060"></div></div>
+            <div id="file" class="tab-content"><div class="form-group"><label for="file-input">Upload File</label><input type="file" id="file-input"><div class="file-warning"><strong>Warning:</strong> For very small files (< 2KB) only. Large files will create unscannable QR codes. For larger files, upload them to a cloud service and create a QR code from the share link.</div></div></div>
+
+            <h3 style="margin-top: 2rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; color: var(--color-secondary);">Design Options</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div class="form-group"><label for="dot-color">Dot Color</label><input type="color" id="dot-color" value="#000000"></div>
+                <div class="form-group"><label for="bg-color">Background Color</label><input type="color" id="bg-color" value="#ffffff"></div>
+                <div class="form-group"><label for="dot-style">Dot Style</label><select id="dot-style"><option value="square">Square</option><option value="dots">Dots</option><option value="rounded">Rounded</option><option value="extra-rounded">Extra Rounded</option><option value="classy">Classy</option><option value="classy-rounded">Classy Rounded</option></select></div>
+                <div class="form-group"><label for="logo-upload">Upload Logo</label><input type="file" id="logo-upload" accept="image/*"></div>
             </div>
 
-            <div id="wifi" class="tab-content">
-                <div class="form-group">
-                    <label for="wifi-ssid">Nama Jaringan (SSID)</label>
-                    <input type="text" id="wifi-ssid" placeholder="NamaWiFiSaya">
-                </div>
-                <div class="form-group">
-                    <label for="wifi-password">Password</label>
-                    <input type="text" id="wifi-password" placeholder="PasswordRahasia">
-                </div>
-                <div class="form-group">
-                    <label for="wifi-encryption">Tipe Enkripsi</label>
-                    <select id="wifi-encryption">
-                        <option value="WPA">WPA/WPA2</option>
-                        <option value="WEP">WEP</option>
-                        <option value="nopass">Tidak Ada</option>
-                    </select>
-                </div>
-            </div>
-
-            <div id="vcard" class="tab-content">
-                <div class="form-group"><label for="vcard-name">Nama Lengkap</label><input type="text" id="vcard-name"></div>
-                <div class="form-group"><label for="vcard-phone">Telepon</label><input type="tel" id="vcard-phone"></div>
-                <div class="form-group"><label for="vcard-email">Email</label><input type="email" id="vcard-email"></div>
-                <div class="form-group"><label for="vcard-org">Organisasi</label><input type="text" id="vcard-org"></div>
-                <div class="form-group"><label for="vcard-url">Website</label><input type="url" id="vcard-url"></div>
-            </div>
-
-            <div id="email" class="tab-content">
-                <div class="form-group"><label for="email-to">Penerima Email</label><input type="email" id="email-to" placeholder="penerima@example.com"></div>
-                <div class="form-group"><label for="email-subject">Subjek</label><input type="text" id="email-subject" placeholder="Subjek Email"></div>
-                <div class="form-group"><label for="email-body">Isi Pesan</label><textarea id="email-body" placeholder="Isi pesan email..."></textarea></div>
-            </div>
-
-            <div id="sms" class="tab-content">
-                <div class="form-group"><label for="sms-to">Nomor Telepon</label><input type="tel" id="sms-to" placeholder="+628123456789"></div>
-                <div class="form-group"><label for="sms-body">Isi Pesan</label><textarea id="sms-body" placeholder="Isi SMS..."></textarea></div>
-            </div>
-
-            <div id="geo" class="tab-content">
-                <div class="form-group"><label for="geo-lat">Latitude</label><input type="number" id="geo-lat" placeholder="-6.200000"></div>
-                <div class="form-group"><label for="geo-lon">Longitude</label><input type="number" id="geo-lon" placeholder="106.816666"></div>
-            </div>
-            
-            <div id="file" class="tab-content">
-                <div class="form-group">
-                    <label for="file-input">Unggah File</label>
-                    <input type="file" id="file-input">
-                    <div class="file-warning">
-                        <strong>Perhatian:</strong> Fitur ini hanya untuk file berukuran SANGAT KECIL (misal: ikon, teks pendek < 1KB). File besar akan menghasilkan QR code yang terlalu rumit dan tidak bisa dipindai.
-                    </div>
-                </div>
-            </div>
-
-            <hr style="margin: 25px 0; border: 1px solid var(--background-color);">
-
-            <h3>Opsi Kustomisasi</h3>
-            <div class="options-grid">
-                <div class="form-group">
-                    <label for="dot-color">Warna Titik</label>
-                    <input type="color" id="dot-color" value="#000000">
-                </div>
-                <div class="form-group">
-                    <label for="bg-color">Warna Latar</label>
-                    <input type="color" id="bg-color" value="#ffffff">
-                </div>
-                <div class="form-group">
-                    <label for="dot-style">Gaya Titik</label>
-                    <select id="dot-style">
-                        <option value="square">Kotak</option>
-                        <option value="dots">Titik</option>
-                        <option value="rounded">Bulat</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="logo-upload">Unggah Logo</label>
-                    <input type="file" id="logo-upload" accept="image/*">
-                </div>
-            </div>
+            <button id="generate-btn" class="btn btn-generate">Generate QR Code</button>
         </div>
 
         <div class="output">
-            <div id="qr-code"></div>
+            <div id="qr-code-container">
+                <div id="qr-code"></div>
+            </div>
             <div class="download-buttons">
-                <button id="download-png" class="btn btn-primary">Unduh PNG</button>
-                <button id="download-svg" class="btn btn-success">Unduh SVG</button>
+                <button id="download-png" class="btn btn-primary">Download PNG</button>
+                <button id="download-svg" class="btn btn-secondary">Download SVG</button>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="footer-content">
+            <a href="https://www.vinnesia.my.id" class="btn btn-outline">Back to Homepage</a>
             <ul class="footer-links">
-                <li><a href="mailto:support@vinnesia.my.id">📧 support@vinnesia.my.id</a></li>
-                <li><a href="https://instagram.com/vin.nesia.id" target="_blank" rel="noopener noreferrer">🧑‍💻 Instagram: @vin.nesia.id</a></li>
-                <li><a href="https://wa.me/62895354511777" target="_blank" rel="noopener noreferrer">📱 WhatsApp: +62 895-3545-11777</a></li>
-                <li><span>📍 Indonesia</span></li>
+                <li><a href="mailto:support@vinnesia.my.id">📧 Email</a></li>
+                <li><a href="https://instagram.com/vin.nesia.id" target="_blank" rel="noopener noreferrer">🧑‍💻 Instagram</a></li>
+                <li><a href="https://wa.me/62895354511777" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a></li>
+                <li><a href="https://www.vinnesia.my.id/privacy" target="_blank">Privacy Policy</a></li>
             </ul>
             <div class="copyright">
-                © 2025 VIN NESIA. All rights reserved.
+                © 2025 VIN NESIA. All rights reserved. <br> 📍 Indonesia
             </div>
         </div>
     </footer>
@@ -414,46 +344,29 @@
         const qrCode = new QRCodeStyling({
             width: 300,
             height: 300,
-            data: "https://vinnesia.my.id",
+            data: "Welcome to VIN NESIA QR Generator!",
             image: "",
-            dotsOptions: {
-                color: "#000000",
-                type: "square"
-            },
-            backgroundOptions: {
-                color: "#ffffff",
-            },
-            imageOptions: {
-                crossOrigin: "anonymous",
-                margin: 5
-            }
+            dotsOptions: { color: "#000000", type: "square" },
+            backgroundOptions: { color: "#ffffff" },
+            imageOptions: { crossOrigin: "anonymous", margin: 5, imageSize: 0.4 },
+            qrOptions: { errorCorrectionLevel: 'H' }
         });
 
-        // Initial render
         qrCode.append(document.getElementById("qr-code"));
 
         function openTab(evt, tabName) {
             currentTab = tabName;
-            let i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-            generateQrCode();
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(tb => tb.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+            // Do not generate on tab switch, wait for button press
         }
 
         function generateQrCode() {
             let data = "";
             switch (currentTab) {
-                case 'text':
-                    data = document.getElementById('text-input').value || "https://vinnesia.my.id";
-                    break;
+                case 'text': data = document.getElementById('text-input').value || "https://qr.vinnesia.my.id"; break;
                 case 'wifi':
                     const ssid = document.getElementById('wifi-ssid').value;
                     const password = document.getElementById('wifi-password').value;
@@ -466,9 +379,7 @@
                     const email = document.getElementById('vcard-email').value;
                     const org = document.getElementById('vcard-org').value;
                     const url = document.getElementById('vcard-url').value;
-                    if (name) {
-                        data = `BEGIN:VCARD\nVERSION:3.0\nN:${name}\nTEL:${phone}\nEMAIL:${email}\nORG:${org}\nURL:${url}\nEND:VCARD`;
-                    }
+                    if (name) data = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nORG:${org}\nURL:${url}\nEND:VCARD`;
                     break;
                 case 'email':
                     const to = document.getElementById('email-to').value;
@@ -486,36 +397,32 @@
                     const lon = document.getElementById('geo-lon').value;
                     if (lat && lon) data = `geo:${lat},${lon}`;
                     break;
-                case 'file':
-                    data = fileDataUrl || "";
-                    break;
+                case 'file': data = fileDataUrl || " "; break;
             }
 
             const dotColor = document.getElementById('dot-color').value;
             const bgColor = document.getElementById('bg-color').value;
             const dotStyle = document.getElementById('dot-style').value;
+            const qrContainer = document.getElementById('qr-code-container');
+            qrContainer.style.backgroundColor = bgColor;
 
             qrCode.update({
-                data: data || " ", // Use space if data is empty to avoid errors
+                data: data || " ",
                 image: logoImage,
                 dotsOptions: { color: dotColor, type: dotStyle },
-                backgroundOptions: { color: bgColor }
+                backgroundOptions: { color: "transparent" }
             });
         }
         
-        // Event Listeners
-        document.querySelectorAll('.controls input, .controls textarea, .controls select').forEach(input => {
-            input.addEventListener('input', generateQrCode);
-        });
+        // Event listener for the Generate button
+        document.getElementById('generate-btn').addEventListener('click', generateQrCode);
 
+        // Event listeners for file inputs (these need to be real-time)
         document.getElementById('logo-upload').addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = (event) => {
-                    logoImage = event.target.result;
-                    generateQrCode();
-                };
+                reader.onload = (event) => { logoImage = event.target.result; };
                 reader.readAsDataURL(file);
             }
         });
@@ -524,24 +431,18 @@
             const file = e.target.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = (event) => {
-                    fileDataUrl = event.target.result;
-                    generateQrCode();
-                };
+                reader.onload = (event) => { fileDataUrl = event.target.result; };
                 reader.readAsDataURL(file);
             }
         });
 
         // Download buttons
-        document.getElementById('download-png').addEventListener('click', () => {
-            qrCode.download({ name: "vinnesia-qr", extension: "png" });
-        });
-        document.getElementById('download-svg').addEventListener('click', () => {
-            qrCode.download({ name: "vinnesia-qr", extension: "svg" });
-        });
+        document.getElementById('download-png').addEventListener('click', () => qrCode.download({ name: "vinnesia-qr", extension: "png" }));
+        document.getElementById('download-svg').addEventListener('click', () => qrCode.download({ name: "vinnesia-qr", extension: "svg" }));
 
-        // Initialize first tab
+        // Initial setup
         document.querySelector('.tab-button').click();
+        generateQrCode(); // Generate a default QR on page load
     </script>
 
 </body>
