@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QR Code Generator untuk URL, teks, dan lebih banyak lagi. Buat QR Code dengan mudah dan cepat.">
+    <title>QR Code Generator (Versi Stabil)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 500px;
+            width: 100%;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 kolom di mobile */
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        /* Media query untuk desktop (lebar > 600px) */
+        @media (min-width: 601px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr); /* Tetap 3 kolom di desktop agar lebih rapi */
+            }
+        }
+        .option {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .option.active, .option:hover {
+            background-color: #eef5ff;
+            border-color: #4a90e2;
+            color: #4a90e2;
+        }
+        .input-group {
+            margin-top: 15px;
+        }
+        input, select {
+            box-sizing: border-box; /* Agar padding tidak menambah lebar */
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .generate-button, .download-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .generate-button:hover, .download-button:hover {
+            background-color: #45a049;
+        }
+        #qrcode-container {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+            min-height: 150px;
+        }
+        #qrcode-container:empty::before {
+            content: "QR Code akan muncul di sini";
+            color: #999;
+            font-size: 14px;
+        }
+        .feedback {
+            color: #d93025;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+    </style>
+    <!-- Pustaka QR Code baru yang lebih andal -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <div class="grid">
+            <div class="option active" data-type="text">TEXT</div>
+            <div class="option" data-type="url">URL</div>
+            <div class="option" data-type="email">E-MAIL</div>
+            <div class="option" data-type="wifi">WIFI</div>
+            <div class="option" data-type="sms">SMS</div>
+            <div class="option" data-type="vcard">VCARD</div>
+        </div>
+        
+        <div class="input-group">
+            <input type="text" id="qr-input" placeholder="Ketik teks Anda di sini" aria-label="Input untuk QR Code">
+        </div>
+
+        <div class="input-group">
+            <label for="size-picker">Ukuran:</label>
+            <select id="size-picker" aria-label="Pilih ukuran QR Code">
+                <option value="150">Kecil</option>
+                <option value="256" selected>Sedang</option>
+                <option value="350">Besar</option>
+            </select>
+        </div>
+
+        <button class="generate-button">BUAT QR CODE</button>
+        <div id="qrcode-container"></div>
+        <div class="feedback" id="feedback"></div>
+        <button class="download-button" style="display:none;">UNDUH QR CODE</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrInput = document.getElementById('qr-input');
+            const generateBtn = document.querySelector('.generate-button');
+            const downloadBtn = document.querySelector('.download-button');
+            const qrCodeContainer = document.getElementById('qrcode-container');
+            const feedback = document.getElementById('feedback');
+            const sizePicker = document.getElementById('size-picker');
+            const options = document.querySelectorAll('.option');
+
+            let qrcode = null; // Variabel untuk menyimpan instance QRCode
+
+            // Fungsi untuk membuat QR Code
+            function generateQrCode() {
+                const text = qrInput.value.trim();
+                feedback.textContent = ''; // Bersihkan pesan error
+
+                if (!text) {
+                    feedback.textContent = 'Input tidak boleh kosong.';
+                    return;
+                }
+
+                // Bersihkan kontainer sebelum membuat QR code baru
+                qrCodeContainer.innerHTML = '';
+                
+                const size = parseInt(sizePicker.value, 10);
+
+                try {
+                    // Membuat QR Code dengan pustaka baru
+                    qrcode = new QRCode(qrCodeContainer, {
+                        text: text,
+                        width: size,
+                        height: size,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+
+                    downloadBtn.style.display = 'block'; // Tampilkan tombol unduh
+                } catch (error) {
+                    console.error("Error saat membuat QR Code:", error);
+                    feedback.textContent = 'Gagal membuat QR Code. Coba lagi.';
+                    downloadBtn.style.display = 'none';
+                }
+            }
+            
+            // Event listener untuk tombol Generate
+            generateBtn.addEventListener('click', generateQrCode);
+
+            // Event listener untuk tombol Download
+            downloadBtn.addEventListener('click', function() {
+                const canvas = qrCodeContainer.querySelector('canvas');
+                if (canvas) {
+                    const link = document.createElement('a');
+                    link.download = 'qrcode.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                } else {
+                    feedback.textContent = 'Silakan buat QR Code terlebih dahulu.';
+                }
+            });
+
+            // Event listener untuk pilihan tipe data
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Hapus kelas 'active' dari semua pilihan
+                    options.forEach(opt => opt.classList.remove('active'));
+                    // Tambahkan kelas 'active' ke pilihan yang diklik
+                    this.classList.add('active');
+
+                    const type = this.getAttribute('data-type');
+                    qrInput.placeholder = `Masukkan ${type.toUpperCase()} Anda`;
+                    
+                    // Reset semuanya saat tipe diganti
+                    qrInput.value = '';
+                    qrCodeContainer.innerHTML = '';
+                    downloadBtn.style.display = 'none';
+                    feedback.textContent = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
