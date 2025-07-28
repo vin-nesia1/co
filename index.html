@@ -289,6 +289,14 @@
                 <button class="tab-button" onclick="openTab(event, 'sms')">📱 SMS</button>
                 <button class="tab-button" onclick="openTab(event, 'geo')">📍 Location</button>
                 <button class="tab-button" onclick="openTab(event, 'file')">📁 File</button>
+                <button class="tab-button" onclick="openTab(event, 'event')">🗓️ Event</button>
+                <button class="tab-button" onclick="openTab(event, 'crypto')">💰 Crypto</button>
+                <button class="tab-button" onclick="openTab(event, 'phone')">☎️ Phone</button>
+                <button class="tab-button" onclick="openTab(event, 'whatsapp')">💬 WhatsApp</button>
+                <button class="tab-button" onclick="openTab(event, 'social')">🌐 Social</button>
+                <button class="tab-button" onclick="openTab(event, 'appstore')">📱 App Store</button>
+                <button class="tab-button" onclick="openTab(event, 'multilang')">🌍 Multi-Lang</button>
+                <button class="tab-button" onclick="openTab(event, 'htmlcustom')">📄 HTML</button>
             </div>
 
             <div id="text" class="tab-content active"><div class="form-group"><label for="text-input">Your Text or URL</label><textarea id="text-input" placeholder="e.g., https://www.vinnesia.my.id"></textarea></div></div>
@@ -298,6 +306,41 @@
             <div id="sms" class="tab-content"><div class="form-group"><label for="sms-to">Phone Number</label><input type="tel" id="sms-to" placeholder="+1234567890"></div><div class="form-group"><label for="sms-body">Message</label><textarea id="sms-body"></textarea></div></div>
             <div id="geo" class="tab-content"><div class="form-group"><label for="geo-lat">Latitude</label><input type="text" id="geo-lat" placeholder="40.7128"></div><div class="form-group"><label for="geo-lon">Longitude</label><input type="text" id="geo-lon" placeholder="-74.0060"></div></div>
             <div id="file" class="tab-content"><div class="form-group"><label for="file-input">Upload File</label><input type="file" id="file-input"><div class="file-warning"><strong>Warning:</strong> For very small files (< 2KB) only. Large files will create unscannable QR codes. For larger files, upload them to a cloud service and create a QR code from the share link.</div></div></div>
+            <div id="event" class="tab-content">
+                <div class="form-group"><label for="event-summary">Event Title</label><input type="text" id="event-summary" placeholder="My Event"></div>
+                <div class="form-group"><label for="event-start">Start Date (YYYY-MM-DDTHH:MM)</label><input type="text" id="event-start" placeholder="2023-12-31T23:59"></div>
+                <div class="form-group"><label for="event-end">End Date (YYYY-MM-DDTHH:MM)</label><input type="text" id="event-end" placeholder="2024-01-01T00:01"></div>
+                <div class="form-group"><label for="event-location">Location</label><input type="text" id="event-location" placeholder="Jakarta, Indonesia"></div>
+                <div class="form-group"><label for="event-description">Description</label><textarea id="event-description" placeholder="Event details..."></textarea></div>
+            </div>
+            <div id="crypto" class="tab-content">
+                <div class="form-group"><label for="crypto-type">Crypto Type</label><select id="crypto-type"><option value="bitcoin">Bitcoin</option><option value="ethereum">Ethereum</option><option value="litecoin">Litecoin</option></select></div>
+                <div class="form-group"><label for="crypto-address">Wallet Address</label><input type="text" id="crypto-address" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"></div>
+                <div class="form-group"><label for="crypto-amount">Amount</label><input type="text" id="crypto-amount" placeholder="0.001"></div>
+                <div class="form-group"><label for="crypto-label">Label</label><input type="text" id="crypto-label" placeholder="Donation"></div>
+            </div>
+            <div id="phone" class="tab-content">
+                <div class="form-group"><label for="phone-number">Phone Number</label><input type="tel" id="phone-number" placeholder="+6281234567890"></div>
+            </div>
+            <div id="whatsapp" class="tab-content">
+                <div class="form-group"><label for="whatsapp-number">Phone Number</label><input type="tel" id="whatsapp-number" placeholder="+6281234567890"></div>
+                <div class="form-group"><label for="whatsapp-message">Pre-filled Message</label><textarea id="whatsapp-message" placeholder="Hello!"></textarea></div>
+            </div>
+            <div id="social" class="tab-content">
+                <div class="form-group"><label for="social-platform">Platform</label><select id="social-platform"><option value="instagram">Instagram</option><option value="telegram">Telegram</option><option value="tiktok">TikTok</option></select></div>
+                <div class="form-group"><label for="social-username">Username</label><input type="text" id="social-username" placeholder="username"></div>
+            </div>
+            <div id="appstore" class="tab-content">
+                <div class="form-group"><label for="appstore-platform">Platform</label><select id="appstore-platform"><option value="playstore">Google Play Store</option><option value="appstore">Apple App Store</option></select></div>
+                <div class="form-group"><label for="appstore-id">App ID or URL</label><input type="text" id="appstore-id" placeholder="com.example.app or full URL"></div>
+            </div>
+            <div id="multilang" class="tab-content">
+                <div class="form-group"><label for="multilang-baseurl">Base URL</label><input type="url" id="multilang-baseurl" placeholder="https://example.com"></div>
+                <div class="form-group"><label for="multilang-langparam">Language Parameter (e.g., lang=en)</label><input type="text" id="multilang-langparam" placeholder="lang=en"></div>
+            </div>
+            <div id="htmlcustom" class="tab-content">
+                <div class="form-group"><label for="htmlcustom-content">HTML Content</label><textarea id="htmlcustom-content" placeholder="<h1>Hello World</h1>"></textarea></div>
+            </div>
 
             <h3 style="margin-top: 2rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; color: var(--color-secondary);">Design Options</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
@@ -398,6 +441,58 @@
                     if (lat && lon) data = `geo:${lat},${lon}`;
                     break;
                 case 'file': data = fileDataUrl || " "; break;
+                case 'event':
+                    const summary = document.getElementById('event-summary').value;
+                    const start = document.getElementById('event-start').value.replace(/[-:]/g, '');
+                    const end = document.getElementById('event-end').value.replace(/[-:]/g, '');
+                    const location = document.getElementById('event-location').value;
+                    const description = document.getElementById('event-description').value;
+                    if (summary && start && end) {
+                        data = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${summary}\nDTSTART:${start}\nDTEND:${end}\nLOCATION:${location}\nDESCRIPTION:${description}\nEND:VEVENT\nEND:VCALENDAR`;
+                    }
+                    break;
+                case 'crypto':
+                    const cryptoType = document.getElementById('crypto-type').value;
+                    const address = document.getElementById('crypto-address').value;
+                    const amount = document.getElementById('crypto-amount').value;
+                    const label = document.getElementById('crypto-label').value;
+                    if (address) data = `${cryptoType}:${address}${amount ? `?amount=${amount}` : ''}${label ? `&label=${encodeURIComponent(label)}` : ''}`;
+                    break;
+                case 'phone':
+                    const phoneNumber = document.getElementById('phone-number').value;
+                    if (phoneNumber) data = `tel:${phoneNumber}`;
+                    break;
+                case 'whatsapp':
+                    const whatsappNumber = document.getElementById('whatsapp-number').value;
+                    const whatsappMessage = document.getElementById('whatsapp-message').value;
+                    if (whatsappNumber) data = `https://wa.me/${whatsappNumber.replace('+', '')}${whatsappMessage ? `?text=${encodeURIComponent(whatsappMessage)}` : ''}`;
+                    break;
+                case 'social':
+                    const platform = document.getElementById('social-platform').value;
+                    const username = document.getElementById('social-username').value;
+                    if (username) {
+                        if (platform === 'instagram') data = `https://instagram.com/${username}`;
+                        else if (platform === 'telegram') data = `https://t.me/${username}`;
+                        else if (platform === 'tiktok') data = `https://tiktok.com/@${username}`;
+                    }
+                    break;
+                case 'appstore':
+                    const appPlatform = document.getElementById('appstore-platform').value;
+                    const appId = document.getElementById('appstore-id').value;
+                    if (appId) {
+                        if (appPlatform === 'playstore') data = appId.startsWith('http') ? appId : `https://play.google.com/store/apps/details?id=${appId}`;
+                        else if (appPlatform === 'appstore') data = appId.startsWith('http') ? appId : `https://apps.apple.com/app/id${appId}`;
+                    }
+                    break;
+                case 'multilang':
+                    const baseUrl = document.getElementById('multilang-baseurl').value;
+                    const langParam = document.getElementById('multilang-langparam').value;
+                    if (baseUrl && langParam) data = `${baseUrl}?${langParam}`;
+                    break;
+                case 'htmlcustom':
+                    const htmlContent = document.getElementById('htmlcustom-content').value;
+                    if (htmlContent) data = `data:text/html;base64,${btoa(htmlContent)}`;
+                    break;
             }
 
             const dotColor = document.getElementById('dot-color').value;
